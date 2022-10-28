@@ -1,0 +1,26 @@
+1.	Write a program that asks for two integers x, y. 
+	The program should indicate which number is the largest and which is the smallest. 
+	Give the arithmetic mean, geometric mean and Euclidean norm assuming that these 2 
+	values are coordinates in 2D space. Note that although the input data are integers, 
+	some of the parameters require floating point arithmetic.
+	Hints:
+		a)	the arithmetic mean is (x+y)/2;
+		b)	the geometric mean is the square root of x*y (std::sqrt function in the cmath library);
+		c)	the Euclidean norm is the square root of x*x+y*y.
+		
+2.	Write a program to solve the linear equation a*x+b=0. The program should ask for the 
+	coefficients a and b. x= -b/a. Note that the user can specify the coefficient a=0. Then 
+	depending on whether b=0 the number of solutions is 0 or any real number.
+	
+3.	Write a program to solve the square equation a*x^2+b*x+c=0 considering complex solutions. 
+	Delta= b^2-4*a*c. 
+	If Delta=0 then only one solution x=-b/2/a. 
+	If Delta>0, then two real solutions 
+		x_1=(-b - sqrt(Delta))/2/a 
+	and 
+		x_2=(-b + sqrt(Delta))/2/a. 
+	If Delta<0 then 2 complex solutions 
+		x_1=-b/2/a-sqrt(-Delta)/2/a*i
+	and 
+		x_2=-b/2/a+sqrt(-Delta)/2/a*i.
+	"i" is a special symbol to represent the square root of -1. 
