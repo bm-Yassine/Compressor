@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": true,
+      "externalConsole": false,
+      "cwd": "/Users/yassinebendimerad/Desktop/b36d4b24-gr05-repo/lab-04",
+      "program": "/Users/yassinebendimerad/Desktop/b36d4b24-gr05-repo/lab-04/build/Debug/outDebug",
+      "MIMode": "lldb",
+      "miDebuggerPath": "/usr/bin/lldb"
+    }
+  ]
+}
