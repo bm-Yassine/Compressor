@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": true,
       "externalConsole": false,
-      "cwd": "/Users/yassinebendimerad/Desktop/b36d4b24-gr05-repo/lab-04",
-      "program": "/Users/yassinebendimerad/Desktop/b36d4b24-gr05-repo/lab-04/build/Debug/outDebug",
+      "cwd": "/Users/yassinebendimerad/Desktop/b36d4b24-gr05-repo",
+      "program": "/Users/yassinebendimerad/Desktop/b36d4b24-gr05-repo/build/Debug/outDebug",
       "MIMode": "lldb",
       "miDebuggerPath": "/usr/bin/lldb"
     }
