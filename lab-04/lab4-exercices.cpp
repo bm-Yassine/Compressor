@@ -18,14 +18,14 @@ int main(){
     }
 
     //Ex2
-    int min = array[0];
+    int min = array[0]; int index;
     for (int i = 1;  i < sizeof(array)/sizeof(array[0]); ++i){
         if (array[i] < min) {
             min = array[i];
+            index = i;
         }
     }
-    std::cout<<"\n≈The smallest number from that list is : "<<min<<std::endl;//You should give a value as well as index
-
+    std::cout<<"\n≈The smallest number from that list is : "<<min<<std::endl<<"indexed in the array as i="<<index<<std::endl;
 
     //Ex3
     int min_idx,temp = 0;

@@ -2,21 +2,31 @@ Functions - New Tasks
 - Function to check if a number is prime.
 - Sieve of Eratosthenes (to leave only prime numbers in the range 1..N)
 - Function to determine the greatest common divider.
-- Function to find an integer power of a real number (take care to be correct for a negative power).
-- A function that determines a given Fibonacci number (iteratively and recursively).
+- Function to find an integer power of a real number (take care to be 
+correct for a negative power).
+- A function that determines a given Fibonacci number (iteratively and 
+recursively).
 
 
 Function - Reworking the old tasks
-- The function which fills an array with pseudorandom numbers (the code can be copied from lab. 4)
-- The function that prints the array to the screen (the code can be copied from lab. 4).
+- The function which fills an array with pseudorandom numbers 
+(the code can be copied from lab. 4)
+- The function that prints the array to the screen 
+(the code can be copied from lab. 4).
 - The function which sorts an array (code taken from lab. 4).
-- A function that solves a system of two linear equations (code can be copied from lab. 2); 
-	the function returns whether a solution exists, and the values of x 1 and x 2 are passed by reference.
-- The function that solves a linear equation (code can be copied from lab. 2).
-- A function solving a quadratic equation (passing two results through function call parameters) (code can be copied from lab. 2).
+- A function that solves a system of two linear equations 
+(code can be copied from lab. 2); 
+	the function returns whether a solution exists, 
+	and the values of x 1 and x 2 are passed by reference.
+- The function that solves a linear equation 
+(code can be copied from lab. 2).
+- A function solving a quadratic equation 
+(passing two results through function call parameters) 
+(code can be copied from lab. 2).
 
 Vector as an array of non-constant size: vector<T>.
 - Function filling an array with random values (vector<T>).
-- Function writing an array to the screen (vector<T>, for (auto a : container)cout << d;).
+- Function writing an array to the screen (vector<T>, 
+for (auto a : container)cout << d;).
 - Function to determine the minimum of an array (vector<T>).
 - Function to sort the array (vector<T>).
