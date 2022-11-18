@@ -1,6 +1,9 @@
-#include<iostream>
+#include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <cmath>
+#include <math.h>
+#include <stdio.h>
 
 
 
@@ -22,6 +25,7 @@ void prime_n(int N){
         std::cout << N << " is not a prime number\n";
 }
 
+
 //function 2
 void Sieve(int n){
     
@@ -41,6 +45,39 @@ void Sieve(int n){
 }
 
 
+//function 3
+int gcd(int a, int b){
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+
+
+//function 4
+void int_pow(double r, int p){
+    double result = pow(r, p);
+    std::cout << r << "^" << p << " = " << result<<std::endl;
+}
+
+
+//function 5 recursively
+int rFib(int i){
+    if (i <= 1)
+        return i;
+    return rFib(i- 1) + rFib(i - 2);
+}
+//iteratively
+int Fib(int j){
+    int a = 0, b = 1, c = 0;
+    for (int i = 0; i < j; i++) {
+        std::cout << a << " ";
+        c = a + b;
+        a = b;
+        b = c;
+    }
+    return j;
+}
+
 
 
 int main()
@@ -59,5 +96,31 @@ int main()
     std::cin>>n;
     std::cout << "Following are the prime numbers smaller than or equal to " << n << std::endl;
     Sieve(n);
-    return 0;
+
+
+
+    //test function 3
+    int a, b;
+    std::cout<<"≈input the 2 positive integers to calculate their greatest common divider\n";
+    std::cin>>a;
+    std::cin>>b;
+    std::cout<<"GCD of "<< a <<" and "<< b <<" is "<< gcd(a, b)<<std::endl;
+
+
+    //test function 4
+    double r; int p;
+    std::cout << "≈Enter base and exponent\n";
+    std::cin >> r >> p;
+    int_pow(r, p);
+
+
+    //test function 5
+    //recursive function
+    int i;
+    std::cout<<"≈The Fibonacci number of the integer : ";
+    std::cin>>i;
+    std::cout << "= " << rFib(i) << std::endl;
+    //iterative function
+    std::cout << "The list of the fibunacci numbers : \n" << Fib(i) << std::endl;
+    
 }
