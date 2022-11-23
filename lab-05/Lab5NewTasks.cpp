@@ -11,27 +11,22 @@
 
 // function 1
 // It should return true or false
-// void prime_n(int N){
-bool prime_n(int N){
-    // bool is_prime = true;
+void prime_n(int N){
+    bool is_prime = true;
     if (N == 0 or N==1){
-        // is_prime = false;
-        return false;
+        is_prime = false;
     }
-    //wrong
-    // for ( int i = 2; i<= N/2 ; ++i){
-    for ( int i = 2; i * i<= N ; ++i){
+    for ( int i = 2; i<= N/2 ; ++i){
         if ( N % i == 0){
-            return false;
-            // break;
+            break;
         }
     }
-    return true;
-    // if ( is_prime )
-    //     std::cout << N << " is a prime number\n";
-    // else
-    //     std::cout << N << " is not a prime number\n";
+    if ( is_prime )
+         std::cout << N << " is a prime number\n";
+    else
+         std::cout << N << " is not a prime number\n";
 }
+
 
 
 //function 2
@@ -67,11 +62,10 @@ int gcd(int a, int b){
 
 //function 4
 // use pow only if power is not integer. Too heavy.
-// void int_pow(double r, int p){
-double int_pow(double r, int p){
+ void int_pow(double r, int p){
     // double result = pow(r, p);
-    return pow(r, p);//but you should multiply p-1 times, not use pow
-    // std::cout << r << "^" << p << " = " << result<<std::endl;
+     //but you should multiply p-1 times, not use pow
+    std::cout << r << "^" << p << " = " << pow(r, p)<<std::endl;
 }
 
 
@@ -82,6 +76,8 @@ int rFib(int i){
         return i;
     return rFib(i- 1) + rFib(i - 2);
 }
+
+
 //iteratively
 int Fib(int j){
     int a = 0, b = 1, c = 0;
@@ -102,8 +98,7 @@ int main()
     int N;
     std::cout<<"≈ Please enter a positive integer\n";
     std::cin>>N;
-    // prime_n(N);
-    std::cout << prime_n(N);
+    prime_n(N);
 
 
 
