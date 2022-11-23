@@ -12,11 +12,11 @@ void TOH(int n,char Sour, char Aux,char Des)
 	TOH(n-1,Sour,Des,Aux);
 	std::cout<<"Move Disk "<<n<<" from "<<Sour<<" to "<<Des<<std::endl;
 	TOH(n-1,Aux,Sour,Des);
-}
+}//ok
 
 
 void Fibonacci(int n){
-    int f[n + 2];
+    int f[n + 2] = {};//Set the whole array to 0. Remember that such array declaration does not work in any compiler except GCC.
     int i;
  
     f[0] = 0;
@@ -26,6 +26,7 @@ void Fibonacci(int n){
     {         
        //Add the previous 2 numbers and storing them
        f[i] = f[i - 1] + f[i - 2];
+	   //works but it is not recursive
     }
     std::cout<<"Fib("<<n<<")="<<f[n]<<"\n";
 }
@@ -48,6 +49,6 @@ int main()
     int f;
     std::cout<<"≈Enter a Fibonacci number:";	
 	std::cin>>f;
-	//calling the Fiboacci Function 
+	//calling the Fibonacci Function 
 	Fibonacci(f);
 }
