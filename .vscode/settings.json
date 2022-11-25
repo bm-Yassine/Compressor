@@ -16,7 +16,7 @@
   "C_Cpp_Runner.compilerArgs": [],
   "C_Cpp_Runner.linkerArgs": [],
   "C_Cpp_Runner.includePaths": [
-    "${workspaceFolder}/**"
+    "${workspaceFolder}/lab-07"
   ],
   "C_Cpp_Runner.includeSearch": [
     "*",
