@@ -3,6 +3,9 @@
 #include <ctime>
 #include <cstdlib>
 
+//In header files you should only declare functions and classes. Not put the body of the functions. Unless a function is inline or template.
+//Functions beneath are to complex to be inline. And they are not templates. Too bad.
+
 void Point(int a){
     srand(time(NULL));
     bool xsign, ysign; // true if negative
