@@ -3,15 +3,11 @@
   "configurations": [
     {
       "name": "C/C++ Runner: Debug Session",
-      "type": "cppdbg",
+      "type": "lldb",
       "request": "launch",
       "args": [],
-      "stopAtEntry": true,
-      "externalConsole": false,
       "cwd": "/Users/yassinebendimerad/Desktop/b36d4b24-gr05-repo",
-      "program": "/Users/yassinebendimerad/Desktop/b36d4b24-gr05-repo/build/Debug/outDebug",
-      "MIMode": "lldb",
-      "miDebuggerPath": "/usr/bin/lldb"
+      "program": "/Users/yassinebendimerad/Desktop/b36d4b24-gr05-repo/build/Debug/outDebug"
     }
   ]
 }
