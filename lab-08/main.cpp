@@ -10,7 +10,7 @@ int main() {
     std::cin>>min;
     std::cin>>max;
     std::cin>>inL;
-    std::cin>>f;
+    std::cin>>f;//Wrong interface
     //random_numbers(N, min, max, inL, f);
 
 
@@ -29,5 +29,5 @@ int main() {
     file.close();
     */
 
-}
+}//Rather poor code.
 
