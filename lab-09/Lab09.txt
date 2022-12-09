@@ -1,0 +1,36 @@
+Pointers
+1. pointers to variables & pointers to arrays
+    - reading a value from a pointer
+        - filling the array *( tab + i) = rand() ;
+        - writing out the array cout << *(tab + i) ;
+    - passing the array by pointers
+        - function that fills an array
+        - function writing the array
+    - function summing array (loop and recursion)
+2. pointers to functions
+    - function that integrates (with integral function embedded) numerically
+    - numerical integration of functions passed by a pointer
+		- array of pointers to functions x=f(x), e.g.: double (*tab[3]) (double)
+			- typedef double (*pf) (double); 
+			- pf tab[3];
+3 Dynamic pointers in C++
+	- new and delete operator !!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (memory leaks)	
+	- arrays (operator new type[] and delete []array). Rapid modification of point 1
+	
+	- construct a regular binary tree of given depth storing random values.
+	  Each node must have the fallowing structure
+	  struct node
+		{
+			int node_id = 0;
+			char node_data[11] = {0};
+			node *p_left_node = nullptr;
+			node *p_right_node = nullptr;
+		};
+	- recursive tree creation, 
+	- recursive content printing,
+	- random subtree extraction 
+	- subtree content printing
+	- subtree destroying
+	- the rest of the tree destroying.
+	- destroyed node should inform the usere that it is just destroyed.
+4. Implementation of 3 with smart pointers (for adveneced students)
