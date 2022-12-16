@@ -1,0 +1,28 @@
+Pointers
+1 Dynamic pointers in C++
+	- new and delete operator !!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (memory leaks)	
+	- arrays (operator new type[] and delete []array). Rapid modification of point 1
+	
+	- construct a regular binary tree of given depth storing random values.
+	  Each node must have the fallowing structure
+	  struct node
+		{
+			int node_id = 0;
+			char node_data[11] = {0};
+			node *p_left_node = nullptr;
+			node *p_right_node = nullptr;
+		};
+	- recursive tree creation, 
+	- recursive content printing,
+	- random subtree extraction 
+	- subtree content printing
+	- subtree destroying
+	- the rest of the tree destroying.
+	- destroyed node should inform the usere that it is just destroyed.
+2. Implementation of 3 with smart pointers (optional)
+
+Maps
+	A text file (e.g. Ulysses by Joyce - included).
+1. Counting the frequency of word pairs in the file.
+2. Generating a text in (pseudo)English randomly based on frequency of word pairs (from task 1).
+3. Generating index (list of unique words with line numbers in which they occur) (from task 1).
