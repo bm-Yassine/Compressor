@@ -11,7 +11,7 @@ Graphs - Implementation of graph traversal BFS (Breadth-first search) or DFS (De
    Since we do not have a predetermined number of vertices in the input file, nor do we assume that the vertices are consecutive real numbers, 
    here a vicinity list based on std::map or std::unordered_map will work best. 
    In addition, the useful data structures are: 
-   a queue (can be implemented on the basis of std::queue, possibly std::dqueue or std::list, but absolutely not std::vector), 
+   a queue (can be implemented on the basis of std::queue, possibly std::dque or std::list, but absolutely not std::vector), 
    and a list of vertex colors (for the reasons above on the basis of std::map or std::unordered_map).
 
 Bipartite graph - see https://en.wikipedia.org/wiki/Bipartite_graph
