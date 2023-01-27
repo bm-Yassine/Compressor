@@ -1,0 +1,9 @@
+How to run the program:
+Open the terminal
+on the project type:
+for encoding : 
+    g++ encode.cpp config.cpp -o (name of main encoding file)
+    ./(that encoding main file) (name of the input file.txt) (name of the compressed file.huf)
+for decoding 
+    g++ decode.cpp config.cpp -o (name of main decoding file)
+    ./(that decoding file name) (name of the compressed file to decompress.huf) (name of the decompressed file.txt)
