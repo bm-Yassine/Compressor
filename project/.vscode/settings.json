@@ -1,0 +1,12 @@
+{
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "cSpell.words": [
+        "BIPARITATE"
+    ],
+    "cmake.debugConfig": {
+        "args": [
+            "inputFile.txt",
+            "outputFile.txt"
+        ],
+    }
+}

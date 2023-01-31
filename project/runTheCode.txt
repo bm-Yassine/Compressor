@@ -7,3 +7,19 @@ for encoding :
 for decoding 
     g++ -std=c++17 decode.cpp deflate.cpp -o (name of main decoding file)
     ./(that decoding file name) (name of the compressed file to decompress.huf) (name of the decompressed file.txt)
+
+I see a few problems:
+1. It is not zip compression, but only Huffman's algorithm. Huffman code is only a part of deflate algorithm. 
+   I would accept the Huffman coder, but it is taken by Batuhan Altunbas. His code is worse than yours,
+   but it is his subject.
+2. It must be one program, not two with switch compress/decompress. And the form of calling should be:
+    ./deflate -c -i input.txt -o output.huf
+    ./deflate -d -i output.huf -o input_test.txt
+    Your is different.
+3. The worse problem. You have the memory leaks. Your code looks like a primitive translation from c# or java.
+   You use initialization typical for c# or java, which is different than is recommended for c++, but possible.
+   You use new and no delete. Frankly speaking it is possible avoid using new at all.
+   You do not know what is a difference between c# new and c++ new. In many places you have use new in c# for
+   each class, but in c++ you can use class without new. Even more, the modern libraries allows for smart pointers.
+   And new is unwelcome in c++, but possible.
+   The program with memory leaks is not acceptable at all.  
