@@ -1,0 +1,60 @@
+\hypertarget{decode_8cpp}{}\doxysection{decode.\+cpp File Reference}
+\label{decode_8cpp}\index{decode.cpp@{decode.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}functions.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{decode_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Yassine Bendimerad (\href{mailto:yb308985@student.polsl.pl}{\texttt{ yb308985@student.\+polsl.\+pl}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/01-\/13
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023
+\end{DoxyCopyright}
+CPP file to run the decompression(decode)(unzip) the ENCODED OUTPUT FILE to OUTPUT FILE similar to the first input file. 
+
+Definition in file \mbox{\hyperlink{decode_8cpp_source}{decode.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{decode_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{decode_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{decode.cpp@{decode.cpp}!main@{main}}
+\index{main@{main}!decode.cpp@{decode.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{decode_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{decode_8cpp_source}{decode.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//error\ message\ if\ failed\ to\ detect\ file}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{if}(argc\ !=\ 3)\{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Failed\ to\ detect\ Files"{}};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ exit(1);}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//starting\ the\ decompression}}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{classhuffman}{huffman}}\ f(argv[1],\ argv[2]);}
+\DoxyCodeLine{00024\ \ \ \ \ f.decompress();}
+\DoxyCodeLine{00025\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Decompressed\ successfully"{}}<<std::endl;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00028\ \ \ \ \ }
+\DoxyCodeLine{00029\ \}}
+
+\end{DoxyCode}

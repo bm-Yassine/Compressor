@@ -1,0 +1,62 @@
+\hypertarget{encode_8cpp}{}\doxysection{encode.\+cpp File Reference}
+\label{encode_8cpp}\index{encode.cpp@{encode.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}functions.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{encode_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Yassine Bendimerad (\href{mailto:yb308985@student.polsl.pl}{\texttt{ yb308985@student.\+polsl.\+pl}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/01-\/13
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023
+\end{DoxyCopyright}
+A lossless compression using Huffman algorithm
+
+CPP FILE to run the compression(zip)(encode) an INPUT TEXT FILE to a compressed (.huf) file. 
+
+Definition in file \mbox{\hyperlink{encode_8cpp_source}{encode.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{encode_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{encode_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{encode.cpp@{encode.cpp}!main@{main}}
+\index{main@{main}!encode.cpp@{encode.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{encode_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{encode_8cpp_source}{encode.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordflow}{if}\ (argc\ !=\ 3)\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Error\ message\ if\ failed\ to\ detect\ file}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Failed\ to\ detect\ Files"{}};}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ exit(1);}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ starting\ the\ compression}}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classhuffman}{huffman}}\ f(argv[1],\ argv[2]);}
+\DoxyCodeLine{00026\ \ \ \ \ f.compress();}
+\DoxyCodeLine{00027\ \ \ \ \ cout<<\textcolor{stringliteral}{"{}Compressed\ successfully"{}}<<std::endl;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \}}
+
+\end{DoxyCode}

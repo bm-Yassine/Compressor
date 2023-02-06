@@ -1,0 +1,24 @@
+\hypertarget{decode_8cpp_source}{}\doxysection{decode.\+cpp}
+\mbox{\hyperlink{decode_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{functions_8h}{functions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00015}00015\ \textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}*\ argv[])\ \{}
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{comment}{//error\ message\ if\ failed\ to\ detect\ file}}
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{if}(argc\ !=\ 3)\{}
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Failed\ to\ detect\ Files"{}};}
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ exit(1);}
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00020}00020\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{comment}{//starting\ the\ decompression}}
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{classhuffman}{huffman}}\ f(argv[1],\ argv[2]);}
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00024}00024\ \ \ \ \ f.decompress();}
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00025}00025\ \ \ \ \ std::cout<<\textcolor{stringliteral}{"{}Decompressed\ successfully"{}}<<std::endl;}
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00028}00028\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{decode_8cpp_source_l00029}00029\ \}}
+
+\end{DoxyCode}
