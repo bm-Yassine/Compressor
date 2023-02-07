@@ -1,0 +1,112 @@
+\hypertarget{class_command_handler}{}\doxysection{Command\+Handler Class Reference}
+\label{class_command_handler}\index{CommandHandler@{CommandHandler}}
+
+
+command handler header file to call the \doxylink{_command_handler_8cpp_source}{command\+Handler.\+cpp} from \doxylink{main_8cpp_source}{main.\+cpp} file  
+
+
+
+
+{\ttfamily \#include $<$Command\+Handler.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_handler_a21b4c58b764242ce9ac6579f14bdef56}{Command\+Handler}} (string input\+File, string output\+File, string command)
+\item 
+void \mbox{\hyperlink{class_command_handler_a83a29a561cea9aea40c93588a71a18e9}{execute}} ()
+\begin{DoxyCompactList}\small\item\em checks the command, outputs error if not the right command and runs the functions related to either compressing or decompressing the file also writes the new output file \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+command handler header file to call the \doxylink{_command_handler_8cpp_source}{command\+Handler.\+cpp} from \doxylink{main_8cpp_source}{main.\+cpp} file 
+
+
+
+Definition at line \mbox{\hyperlink{_command_handler_8h_source_l00010}{10}} of file \mbox{\hyperlink{_command_handler_8h_source}{Command\+Handler.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_command_handler_a21b4c58b764242ce9ac6579f14bdef56}\label{class_command_handler_a21b4c58b764242ce9ac6579f14bdef56}} 
+\index{CommandHandler@{CommandHandler}!CommandHandler@{CommandHandler}}
+\index{CommandHandler@{CommandHandler}!CommandHandler@{CommandHandler}}
+\doxysubsubsection{\texorpdfstring{CommandHandler()}{CommandHandler()}}
+{\footnotesize\ttfamily Command\+Handler\+::\+Command\+Handler (\begin{DoxyParamCaption}\item[{string}]{input\+File,  }\item[{string}]{output\+File,  }\item[{string}]{command }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_command_handler_8h_source_l00012}{12}} of file \mbox{\hyperlink{_command_handler_8h_source}{Command\+Handler.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ :\ inputFile(inputFile),\ outputFile(outputFile),\ command(command)\ \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_command_handler_a83a29a561cea9aea40c93588a71a18e9}\label{class_command_handler_a83a29a561cea9aea40c93588a71a18e9}} 
+\index{CommandHandler@{CommandHandler}!execute@{execute}}
+\index{execute@{execute}!CommandHandler@{CommandHandler}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily void Command\+Handler\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+checks the command, outputs error if not the right command and runs the functions related to either compressing or decompressing the file also writes the new output file 
+
+compressing\+: read input, lz77 compression, make new tree, huffman compression, write output in new file decompression\+: read input, huffman decompression, lz77 decoding, write output in .txt file 
+
+Definition at line \mbox{\hyperlink{_command_handler_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{_command_handler_8cpp_source}{Command\+Handler.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ vector<string>\ result;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{string}\ inputFileContent;}
+\DoxyCodeLine{00019\ \ \ \ \ FileIO::read(inputFile,\ inputFileContent);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{if}\ (command\ ==\ \textcolor{stringliteral}{"{}-\/c"{}}\ )\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ lzCompressed;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ LZ77Codec::compress(inputFileContent,\ \&lzCompressed);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ Tree\ *tree\ =\ \textcolor{keyword}{new}\ Tree();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ tree-\/>makeTree(lzCompressed);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ firstLine,\ huffmanCompressed;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ HuffmanCodec::compress(tree,\ \&firstLine,\ \&huffmanCompressed,\ lzCompressed);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ result.push\_back(firstLine);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ result.push\_back(huffmanCompressed);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ FileIO::write(outputFile,\ result);}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(command\ ==\ \textcolor{stringliteral}{"{}-\/d"{}})\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ lineBreak\ =\ inputFileContent.find(\textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ keys\ =\ inputFileContent.substr(0,\ lineBreak);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ compressed\ =\ inputFileContent.substr(lineBreak\ +\ 1);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ huffmanDecompressed;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ HuffmanCodec::decompress(keys,\ compressed,\ \&huffmanDecompressed);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ lzDecompressed;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ LZ77Codec::decompress(huffmanDecompressed,\ \&lzDecompressed);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ result.push\_back(lzDecompressed);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ FileIO::write(outputFile,\ result);}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Wrong\ Command"{}}\ <<\ endl;}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Command\+Handler.\+h\item 
+Command\+Handler.\+cpp\end{DoxyCompactItemize}

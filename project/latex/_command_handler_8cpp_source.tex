@@ -1,0 +1,51 @@
+\hypertarget{_command_handler_8cpp_source}{}\doxysection{Command\+Handler.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}CommandHandler.h"{}}}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}tree/Tree.h"{}}}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}operations/Huffman.h"{}}}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}operations/FileIO.h"{}}}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}operations/lz77.h"{}}}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00016}\mbox{\hyperlink{class_command_handler_a83a29a561cea9aea40c93588a71a18e9}{00016}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_command_handler_a83a29a561cea9aea40c93588a71a18e9}{CommandHandler::execute}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00017}00017\ \ \ \ \ vector<string>\ result;}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{string}\ inputFileContent;}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00019}00019\ \ \ \ \ FileIO::read(inputFile,\ inputFileContent);}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{if}\ (command\ ==\ \textcolor{stringliteral}{"{}-\/c"{}}\ )\ \{}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ lzCompressed;}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ LZ77Codec::compress(inputFileContent,\ \&lzCompressed);}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ Tree\ *tree\ =\ \textcolor{keyword}{new}\ Tree();}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ tree-\/>makeTree(lzCompressed);}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ firstLine,\ huffmanCompressed;}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ HuffmanCodec::compress(tree,\ \&firstLine,\ \&huffmanCompressed,\ lzCompressed);}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ result.push\_back(firstLine);}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ result.push\_back(huffmanCompressed);}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ FileIO::write(outputFile,\ result);}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00036}00036\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(command\ ==\ \textcolor{stringliteral}{"{}-\/d"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ lineBreak\ =\ inputFileContent.find(\textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ keys\ =\ inputFileContent.substr(0,\ lineBreak);}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ compressed\ =\ inputFileContent.substr(lineBreak\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ huffmanDecompressed;}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ HuffmanCodec::decompress(keys,\ compressed,\ \&huffmanDecompressed);}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ lzDecompressed;}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ LZ77Codec::decompress(huffmanDecompressed,\ \&lzDecompressed);}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ result.push\_back(lzDecompressed);}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ FileIO::write(outputFile,\ result);}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00050}00050\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00051}00051\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Wrong\ Command"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_command_handler_8cpp_source_l00055}00055\ \}}
+
+\end{DoxyCode}
