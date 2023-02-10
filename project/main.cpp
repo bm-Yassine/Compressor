@@ -16,8 +16,10 @@ int main(int argc, char *argv[]) {
         string inputFilename = argv[2];
         string outputFilename = argv[3];
 
-        CommandHandler *commandHandler = new CommandHandler(inputFilename, outputFilename, command);
-        commandHandler->execute();
+        // CommandHandler *commandHandler = new CommandHandler(inputFilename, outputFilename, command);
+        CommandHandler commandHandler(inputFilename, outputFilename, command);
+        commandHandler.execute();
+        // delete commandHandler;
     }
     return 0;
 }

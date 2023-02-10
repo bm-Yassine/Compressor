@@ -6,6 +6,12 @@
 /**
  * organize the huffman tree funtions  
  */
+class compare {
+public:
+    bool operator()(Node* lhs, Node* rhs) {
+        return rhs->getFreq() <= lhs->getFreq();
+    }
+};
 
 class Tree {
 public:
@@ -21,7 +27,8 @@ public:
 private:
     Node* root;
     map<unsigned char, int> charFreqMap;
-    priority_queue<Node*, vector<Node*>, decltype([](Node* lhs, Node* rhs) {return rhs->getFreq() <= lhs->getFreq(); })> nodesQueue;
+    // priority_queue<Node*, vector<Node*>, decltype([](Node* lhs, Node* rhs) {return rhs->getFreq() <= lhs->getFreq(); })> nodesQueue;
+    priority_queue<Node*, vector<Node*>, compare> nodesQueue;
 
     void fillCharFreqMap(const string &inputFileContent);
     void makeInitialNodes();
