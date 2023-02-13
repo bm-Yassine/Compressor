@@ -32,8 +32,9 @@ void HuffmanCodec::decompress(const string &keys, const string &compressed, stri
     string codeToken;
     for(char c : compressedBits) {
         codeToken += c;
-        if (codeToCharMap.contains(codeToken)) {
-            (*decompressed) += codeToCharMap[codeToken];
+        auto it = codeToCharMap.find(codeToken);
+        if (it != codeToCharMap.end()) {
+            (*decompressed) += it->second;
             codeToken.erase();
         }
     }

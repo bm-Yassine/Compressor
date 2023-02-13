@@ -16,7 +16,7 @@
 void CommandHandler::execute() {
     vector<string> result;
     string inputFileContent;
-    FileIO::read(inputFile, inputFileContent);
+    FileIO::read(inputFile, inputFileContent); 
 
     if (command == "-c" ) {
         string lzCompressed;
@@ -49,7 +49,7 @@ void CommandHandler::execute() {
         FileIO::write(outputFile, result);
     }
     
-    else {
-        cout << "Wrong Command" << endl;
+    else if (command != "-c" || command !="-d") {
+        cout << "Wrong Command: -c for compression; -d for decompression;" << endl;
     }
 }
