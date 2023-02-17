@@ -44,6 +44,7 @@ int main(int argc, char *argv[]) {
             cin >> confirm;
         }
 
+        // getline(Infile, confirm, '\0');
         if (confirm == "YES"  || !Outfile.good()){
         CommandHandler *commandHandler = new CommandHandler(inputFilename, outputFilename, command);
         commandHandler->execute();

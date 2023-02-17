@@ -18,7 +18,7 @@ public:
         return left;
     }
 
-    int getFreq() {
+    int getFreq() const {
         return freq;
     }
 
