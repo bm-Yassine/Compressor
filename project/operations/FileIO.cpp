@@ -8,16 +8,20 @@
  */
 
 void FileIO::read(const string &filename, string &content) {
-    ifstream infile(filename);
+    ifstream infile(filename, std::ios::binary);
 
-    string line;
+    string line;                   //line by line
     while (getline(infile, line)) {
         content += line + "\n";
     }
+    // string binaryIn;                 //all in
+    // while(getline(infile, binaryIn, '\0')){
+    // content += binaryIn;
+    // }
     content.erase(content.size()-1);
 
     infile.close();
-}
+}   
 
 /**
  * @brief output file writing function
@@ -27,7 +31,7 @@ void FileIO::read(const string &filename, string &content) {
  */
 
 void FileIO::write(const string &filename, const vector<string> &content) {
-    ofstream outfile(filename);
+    ofstream outfile(filename, std::ios::out | std::ios::binary);
 
     for (const string& s: content) {
         outfile << s;
