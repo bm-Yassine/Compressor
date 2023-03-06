@@ -3,10 +3,8 @@
 
 #include "Common.h"
 
-/**
- * @brief command handler header file to call the commandHandler.cpp from main.cpp file
- * 
- */
+// @brief command handler header file to call the commandHandler.cpp from main.cpp file
+
 class CommandHandler {
 public:
     CommandHandler(string inputFile, string outputFile, string command): inputFile(inputFile), outputFile(outputFile), command(command) {}

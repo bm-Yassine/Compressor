@@ -5,14 +5,13 @@
 #include <memory>
 #include <queue>
 
-/**
- * organize the huffman tree funtions  
- */
+
+// organize the huffman tree funtions  
+
 class compare {
 public:
     bool operator()(Node* lhs, Node* rhs) {
-        // return rhs->getFreq() <= lhs->getFreq();
-        return rhs->getFreq() < lhs->getFreq();
+        return rhs->getFreq() < lhs->getFreq(); 
     }
 };
 
@@ -37,10 +36,10 @@ public:
 private:
     Node* root;
     map<unsigned char, int> charFreqMap;
-    // priority_queue<Node*, vector<Node*>, decltype([](Node* lhs, Node* rhs) {return rhs->getFreq() <= lhs->getFreq(); })> nodesQueue;
+    //(tests) priority_queue<Node*, vector<Node*>, decltype([](Node* lhs, Node* rhs) {return rhs->getFreq() <= lhs->getFreq(); })> nodesQueue;
+    //(tests) priority_queue < std::unique_ptr<Node>, deque<std::unique_ptr<Node>>, compare> nodesQueue;
     priority_queue<Node*, vector<Node*>, compare> nodesQueue;
-    // priority_queue < std::unique_ptr<Node>, deque<std::unique_ptr<Node>>, compare> nodesQueue;
-
+    
     void fillCharFreqMap(const string &inputFileContent);
     void makeInitialNodes();
     void dfs(Node* node, vector<string> *codes, const string &code);

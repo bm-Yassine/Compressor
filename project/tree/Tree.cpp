@@ -20,7 +20,6 @@ void Tree::makeTree(const string &inputFileContent) {
 
         newNode = new Node(node1, node2, node1->getFreq() + node2->getFreq());
         nodesQueue.push(newNode);
-     // if we delete 'new' or use smart pointers here, we get segmentation faults and program crashes.
     }
 
     root = nodesQueue.top();

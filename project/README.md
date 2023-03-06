@@ -14,4 +14,5 @@ and
 
 and the contents of input.txt and out_decompress.txt files would be the same.
 
-(as you can see I tried to build using Cmake but i did not have time to learn fully how it works to be able to implement it, i left the files to be able to work on them in the future)
+compiled with clang: 
+project % clang++ -Wall -std=c++20 main.cpp CommandHandler.cpp tree/Tree.cpp operations/FileIO.cpp operations/Huffman.cpp operations/lz77.cpp -o deflate

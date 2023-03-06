@@ -3,9 +3,9 @@
 
 #include "../Common.h"
 
-/**
- * Defining the functions related to the node creation and navigation
- */
+
+ //Defining the functions related to the node creation and navigation
+ 
 class Node {
 public:
     Node(Node* right, Node* left, int freq, unsigned char symbol = '\0'): right(right), left(left), freq(freq), symbol(symbol) {}
