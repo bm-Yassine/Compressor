@@ -6,11 +6,11 @@ You can compress and decompress text input files with Deflate with this project.
 
 The commands for these operations are:
 
-./deflate -c <input file> <output file>
+./deflate -c -i <input file> -o <output file>
 
 and
 
-./deflate -d <input file> <output file>
+./deflate -d -i <input file> -o <output file>
 
 and the contents of input.txt and out_decompress.txt files would be the same.
 
