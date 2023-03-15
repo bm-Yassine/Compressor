@@ -1,1 +1,3 @@
-# b36d4b24-gr05-repo
+# Compression projects:
+- Deflate Algorithm (lz77 encoding + huffman compression)
+- Huffman Algorithm V1 (test)

@@ -1,5 +1,0 @@
-program check :
-task 2
-M  10.4139
-V  17.2835
-S  4.15734

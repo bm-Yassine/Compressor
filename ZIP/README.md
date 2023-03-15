@@ -6,13 +6,13 @@ You can compress and decompress text input files with Deflate with this project.
 
 The commands for these operations are:
 
-./deflate -c -i <input file> -o <output file>
+./deflate -c -i <inputFile.txt> -o <outputFile.huf>
 
 and
 
-./deflate -d -i <input file> -o <output file>
+./deflate -d -i <inputFile.huf> -o <outputFile.txt>
 
-and the contents of input.txt and out_decompress.txt files would be the same.
+so the contents of input.txt and out_decompress.txt files would be the same.
 
 compiled with clang: 
 project % clang++ -Wall -std=c++20 main.cpp CommandHandler.cpp tree/Tree.cpp operations/FileIO.cpp operations/Huffman.cpp operations/lz77.cpp -o deflate
