@@ -8,7 +8,7 @@
  
 class Node {
 public:
-    Node(Node* right, Node* left, int freq, unsigned char symbol = '\0'): right(right), left(left), freq(freq), symbol(symbol) {}
+    Node(Node* right, Node* left, int freq, unsigned char symbol = '\0'): freq(freq), symbol(symbol), right(right), left(left) {}
 
     Node* getRight() {
         return right;

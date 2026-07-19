@@ -11,6 +11,7 @@
  */
 
 #include "functions.h"
+#include <iostream>
 
 void huffman::createArr() {
     //defining and setting the huffman array that stores all characters and their frequency
@@ -61,6 +62,12 @@ void huffman::createMinHeap() {
     inFile.get(id);
     //Incrementing frequency of characters that appear in the input file
     while (!inFile.eof()) {
+        //the array only covers ascii, a negative char would index out of it and crash
+        if ((unsigned char)id > 127) {
+            std::cout << "Only ASCII text files are supported." << std::endl;
+            inFile.close();
+            exit(1);
+        }
         arr[id]->freq++;
         inFile.get(id);
     }

@@ -10,18 +10,14 @@
 void FileIO::read(const string &filename, string &content) {
     ifstream infile(filename, std::ios::binary);
 
-    string line;                   //line by line
-    while (getline(infile, line)) {
-        content += line + "\n";
-    }
-    // string binaryIn;                 //all in
-    // while(getline(infile, binaryIn, '\0')){
-    // content += binaryIn;
-    // }
-    content.erase(content.size()-1);
+    // read the whole file as-is: splitting on '\n' and rejoining
+    // corrupted compressed data and dropped trailing newlines
+    stringstream buffer;
+    buffer << infile.rdbuf();
+    content = buffer.str();
 
     infile.close();
-}   
+}
 
 /**
  * @brief output file writing function

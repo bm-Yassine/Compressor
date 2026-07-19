@@ -16,24 +16,28 @@
 void CommandHandler::execute() {
     vector<string> result;
     string inputFileContent;
-    FileIO::read(inputFile, inputFileContent); 
+    FileIO::read(inputFile, inputFileContent);
+
+    if (inputFileContent.empty()) {
+        cout << "The input file is empty, nothing to do." << endl;
+        return;
+    }
 
     if (command == "-c" ) {
         string lzCompressed;
         LZ77Codec::compress(inputFileContent, &lzCompressed);
 
-        Tree *tree = new Tree();
-        tree->makeTree(lzCompressed);
+        Tree tree; // on the stack so it frees itself, no new/delete to forget
+        tree.makeTree(lzCompressed);
 
         string firstLine, huffmanCompressed;
-        HuffmanCodec::compress(tree, &firstLine, &huffmanCompressed, lzCompressed);
-        
+        HuffmanCodec::compress(&tree, &firstLine, &huffmanCompressed, lzCompressed);
 
         result.push_back(firstLine);
         result.push_back(huffmanCompressed);
         FileIO::write(outputFile, result);
     }
-    
+
     else if(command == "-d") {
         size_t lineBreak = inputFileContent.find('\n');
         string keys = inputFileContent.substr(0, lineBreak);
@@ -49,7 +53,7 @@ void CommandHandler::execute() {
         FileIO::write(outputFile, result);
     }
     
-    else if (command != "-c" || command !="-d") {
+    else {
         cout << "Wrong Command: -c for compression; -d for decompression;" << endl;
     }
 }

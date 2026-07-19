@@ -26,11 +26,11 @@ public:
     ~Tree() {
         while (!nodesQueue.empty())
         {
-            delete nodesQueue.top();
+            deleteSubtree(nodesQueue.top());
             nodesQueue.pop();
         }
-        delete root;
-    }	
+        deleteSubtree(root); // delete root alone would leak all the child nodes
+    }
     void getCodes(vector<string> *codes);
     void makeTree(const string &inputFileContent);
 private:
@@ -43,6 +43,7 @@ private:
     void fillCharFreqMap(const string &inputFileContent);
     void makeInitialNodes();
     void dfs(Node* node, vector<string> *codes, const string &code);
+    static void deleteSubtree(Node* node);
 };
 
 

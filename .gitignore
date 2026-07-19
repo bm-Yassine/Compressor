@@ -1,0 +1,10 @@
+# build output
+ZIP/deflate
+HuffmanAlgo/main_c
+HuffmanAlgo/main_d
+*.o
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store

@@ -57,3 +57,11 @@ void Tree::dfs(Node *node, vector<string> *codes, const string &code) {
         dfs(node->getLeft(), codes, code + "0");
     }
 }
+
+// free a whole subtree, children first
+void Tree::deleteSubtree(Node *node) {
+    if (node == nullptr) return;
+    deleteSubtree(node->getLeft());
+    deleteSubtree(node->getRight());
+    delete node;
+}
